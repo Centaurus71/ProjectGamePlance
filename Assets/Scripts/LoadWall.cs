@@ -10,7 +10,7 @@ public class LoadWall : MonoBehaviour
         LoadObject loadwall = new LoadObject();
         GameObject plane = loadwall.LoadPlane();
         GameObject wall = loadwall.LoadCube();
-        GameObject box = loadwall.LoadCube();
+        GameObject cylinder = loadwall.Cylinder();
         GameObject cubebox = loadwall.Cubebox();
         
         int qq = 0;
@@ -32,7 +32,7 @@ public class LoadWall : MonoBehaviour
                 }
                 else if (x % 2 == 0 & z % 2 == 0)
                 {
-                    Instantiate(box, new Vector3(x * 10 + ix, 5, z * 10 + iz), Quaternion.identity); //установка препядствий
+                    Instantiate(wall, new Vector3(x * 10 + ix, 5, z * 10 + iz), Quaternion.identity); //установка препядствий
                 }
                /* else if ((x % 2 != 0 & z % 2 != 0) | (x%2 == 0 & z %2 !=0) & n == 1)
                 {
@@ -53,5 +53,7 @@ public class LoadWall : MonoBehaviour
         plane.transform.localScale = new Vector3(width + (0.1f*width), 1, length + (0.1f*length));
         //загрузка поля
         Instantiate(plane, new Vector3(qq, 0, qqq), Quaternion.identity);
+        //загрузка цилиндра
+        Instantiate(cylinder, new Vector3(11, 5, 11), Quaternion.identity);
     }
 }
