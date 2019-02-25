@@ -8,7 +8,7 @@ public class startgame : LoadObject
     void Start()
     {
         LoadWall load = new LoadWall();
-        load.StartLoadWall(17,19);
+        load.StartLoadWall(15,17);
     }
 
     // Update is called once per frame
