@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4595933308238748886}
   - component: {fileID: 4473214531278548726}
   - component: {fileID: 149569709627074657}
-  - component: {fileID: 8997204298886764988}
+  - component: {fileID: 8525386956047052616}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541793171875334366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 5, z: 11}
+  m_LocalRotation: {x: 0.06757382, y: -0.23976995, z: 0.085908644, w: 0.9646574}
+  m_LocalPosition: {x: 9.31, y: 4.97, z: 11.88}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1983844149929645223}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.879001, y: -27.243002, z: 7.7790003}
 --- !u!33 &841510673132425900
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,18 +107,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a469938f97a05a447972fc801ed4a087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8997204298886764988
-MonoBehaviour:
+--- !u!54 &8525386956047052616
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541793171875334366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc888b3932a5254bb66f731f2790c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &8901726881802696868
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +134,7 @@ GameObject:
   - component: {fileID: 1983844149929645223}
   - component: {fileID: 7473984375453145467}
   - component: {fileID: 1178256746254881476}
+  - component: {fileID: 5513189316081613411}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -201,3 +206,15 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8901726881802696868}
   m_Enabled: 1
+--- !u!114 &5513189316081613411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901726881802696868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc888b3932a5254bb66f731f2790c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

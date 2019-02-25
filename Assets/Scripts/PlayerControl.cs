@@ -13,19 +13,20 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         //направление движения
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(transform.right * speed * Time.deltaTime);
         }
-        else if (Input.GetAxis("Horizontal") < 0)
+
+        else if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-transform.right * speed * Time.deltaTime);
         }
-        if (Input.GetAxis("Vertical") > 0)
+        if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(transform.forward * speed * Time.deltaTime);
         }
-        if (Input.GetAxis("Vertical") < 0)
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(-transform.forward * speed * Time.deltaTime);
         }
