@@ -13,7 +13,8 @@ public class LoadWall : MonoBehaviour
         GameObject cylinder = loadwall.Cylinder();
         GameObject cubebox = loadwall.Cubebox();
         GameObject player = loadwall.LoadPlayer();
-        List <Vector3> emptySpace = new List<Vector3>(); 
+        List <Vector3> emptySpace = new List<Vector3>();
+        string complexity = "lung";  // доступные уровни lung, medium, hard, t
 
 
         int fildCenterX = 0;
@@ -67,74 +68,8 @@ public class LoadWall : MonoBehaviour
         //загрузка player
         int randomNumber = Random.Range(0, numberEmpty - 1);
         Instantiate(player, emptySpace[randomNumber], Quaternion.identity);
-        //Instantiate(player, new Vector3(11, 5, 11), Quaternion.identity);
 
-        Vector3 vectorPlayZ = new Vector3 (0, 0, 11);
-        Vector3 vectorPlayX = new Vector3 (11, 0, 0);
-        Vector3 vectorPlayLocal = emptySpace[randomNumber];
-        print(emptySpace.Count);
-        Vector3 vectorz = vectorPlayLocal;
-        Vector3 vectorx = vectorPlayLocal;
-        emptySpace.RemoveAt(randomNumber);
-        for (int i = 0; i <3; i++)
-        {
-            vectorz = vectorz - vectorPlayZ;
-            if (emptySpace.IndexOf(vectorz) == -1)
-            {
-                break;
-            }
-            else
-            {
-                emptySpace.Remove(vectorz);
-            }
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            vectorx = vectorx - vectorPlayX;
-            if (emptySpace.IndexOf(vectorx) == -1)
-            {
-                break;
-            }
-            else
-            {
-                emptySpace.Remove(vectorx);
-            }
-        }
-        Vector3 vectorzz = vectorPlayLocal;
-        Vector3 vectorxx = vectorPlayLocal;
-        for (int i = 0; i < 3; i++)
-        {
-            vectorzz = vectorzz + vectorPlayZ;
-            if (emptySpace.IndexOf(vectorzz) == -1)
-            {
-                break;
-            }
-            else
-            {
-                emptySpace.Remove(vectorzz);
-            }
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            vectorxx = vectorxx + vectorPlayX;
-            if (emptySpace.IndexOf(vectorxx) == -1)
-            {
-                break;
-            }
-            else
-            {
-                emptySpace.Remove(vectorxx);
-            }
-        }
-        print(emptySpace.Count);
-        //растоновка препядтствий
-
-        for (int i = 0; i< emptySpace.Count; i++)
-        {
-            //int indexmas = emptySpace.Count;
-            //int indexran = Random.Range(0, indexmas - 1);
-            Instantiate(cubebox, emptySpace[i], Quaternion.identity);
-            //emptySpace.RemoveAt(indexran);
-        }
+        LoadBox loadBox = new LoadBox();
+        loadBox.loadBox(emptySpace, randomNumber, complexity);
     }
 }
