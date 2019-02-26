@@ -13,8 +13,9 @@ public class LoadWall : MonoBehaviour
         GameObject cylinder = loadwall.Cylinder();
         GameObject cubebox = loadwall.Cubebox();
         GameObject player = loadwall.LoadPlayer();
-        
-        List<Vector3> qw = new List<Vector3>(); 
+        List <Vector3> emptySpace = new List<Vector3>(); 
+
+
         int fildCenterX = 0;
         int fildCenterY = 0;
         int width = widthx;  //ширина
@@ -32,26 +33,30 @@ public class LoadWall : MonoBehaviour
                 }
                 else if (x % 2 == 0 & z % 2 == 0)
                 {
-                    Instantiate(wall, new Vector3(x * 10 + ix, 5, z * 10 + iz), Quaternion.identity); //установка препядствий
+                    Instantiate(wall, new Vector3(x * 10 + ix, 5, z * 10 + iz), Quaternion.identity); //установка стен внутри поля
                 }
-                else if (x%2 == 0 & z %2 !=0)
+                /*else if (x%2 == 0 & z %2 !=0)
                 {
-                    qw.Add(new Vector3 (x * 10 + ix, 5, z * 10 + iz));
+                    emptySpace.Add(new Vector3 (x * 10 + ix, 5, z * 10 + iz));
                 }
                 else if (x % 2 != 0 & z % 2 == 0)
                 {
-                    qw.Add(new Vector3(x * 10 + ix, 5, z * 10 + iz));
-                }
-                else if ((x % 2 != 0 & z % 2 != 0) | (x % 2 != 0 & z % 2 == 0) & (x != 1 & z != 1) )
+                    emptySpace.Add(new Vector3(x * 10 + ix, 5, z * 10 + iz));
+                }*/
+                /* else if ((x % 2 != 0 & z % 2 != 0) | (x % 2 != 0 & z % 2 == 0) & (x != 1 & z != 1))
                 {
-                    qw.Add(new Vector3(x * 10 + ix, 5, z * 10 + iz));
-                    //Instantiate(cubebox, new Vector3(x * 10 + ix, 2, z * 10 + iz), Quaternion.identity); //установка препядствий
+                    emptySpace.Add(new Vector3(x * 10 + ix, 5, z * 10 + iz));
+                }*/
+
+                else if ((x % 2 != 0 & z % 2 != 0) | (x % 2 != 0 & z % 2 == 0) | (x % 2 == 0 & z % 2 != 0))
+                {
+                    emptySpace.Add(new Vector3(x * 10 + ix, 5, z * 10 + iz));
                 }
                 iz++;
             }
             ix++;
         }
-        int qae = qw.Count;
+        int numberEmpty = emptySpace.Count;
         //определение координат центра поля
         fildCenterX = ((width -1)  * 10 + ix ) /2;
         fildCenterY = ((length-1) * 10 + iz - 1) / 2;
@@ -60,15 +65,76 @@ public class LoadWall : MonoBehaviour
         //загрузка поля
         Instantiate(plane, new Vector3(fildCenterX, 0, fildCenterY), Quaternion.identity);
         //загрузка player
-        int za = Random.Range(0, qae - 1);
-        Instantiate(player, qw[za], Quaternion.identity);
-        qw.RemoveAt(za);
-        for (int i = 0; i<15;i++)
+        int randomNumber = Random.Range(0, numberEmpty - 1);
+        Instantiate(player, emptySpace[randomNumber], Quaternion.identity);
+        //Instantiate(player, new Vector3(11, 5, 11), Quaternion.identity);
+
+        Vector3 vectorPlayZ = new Vector3 (0, 0, 11);
+        Vector3 vectorPlayX = new Vector3 (11, 0, 0);
+        Vector3 vectorPlayLocal = emptySpace[randomNumber];
+        print(emptySpace.Count);
+        Vector3 vectorz = vectorPlayLocal;
+        Vector3 vectorx = vectorPlayLocal;
+        emptySpace.RemoveAt(randomNumber);
+        for (int i = 0; i <3; i++)
         {
-            int indexmas = qw.Count;
-            int indexran = Random.Range(0, indexmas - 1);
-            Instantiate(cubebox, qw[indexran], Quaternion.identity);
-            qw.RemoveAt(indexran);
+            vectorz = vectorz - vectorPlayZ;
+            if (emptySpace.IndexOf(vectorz) == -1)
+            {
+                break;
+            }
+            else
+            {
+                emptySpace.Remove(vectorz);
+            }
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            vectorx = vectorx - vectorPlayX;
+            if (emptySpace.IndexOf(vectorx) == -1)
+            {
+                break;
+            }
+            else
+            {
+                emptySpace.Remove(vectorx);
+            }
+        }
+        Vector3 vectorzz = vectorPlayLocal;
+        Vector3 vectorxx = vectorPlayLocal;
+        for (int i = 0; i < 3; i++)
+        {
+            vectorzz = vectorzz + vectorPlayZ;
+            if (emptySpace.IndexOf(vectorzz) == -1)
+            {
+                break;
+            }
+            else
+            {
+                emptySpace.Remove(vectorzz);
+            }
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            vectorxx = vectorxx + vectorPlayX;
+            if (emptySpace.IndexOf(vectorxx) == -1)
+            {
+                break;
+            }
+            else
+            {
+                emptySpace.Remove(vectorxx);
+            }
+        }
+        print(emptySpace.Count);
+        //растоновка препядтствий
+
+        for (int i = 0; i< emptySpace.Count; i++)
+        {
+            //int indexmas = emptySpace.Count;
+            //int indexran = Random.Range(0, indexmas - 1);
+            Instantiate(cubebox, emptySpace[i], Quaternion.identity);
+            //emptySpace.RemoveAt(indexran);
         }
     }
 }
