@@ -4,37 +4,36 @@ using UnityEngine;
 
 public class LoadObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject LoadPlane()
+    public GameObject loadPlane()
     {
         GameObject plane = Resources.Load("Prefaps/Plane") as GameObject;
         return plane;
     }
-    public GameObject LoadCube()
+    public GameObject loadCube()
     {
         GameObject cube = Resources.Load("Prefaps/Cube") as GameObject;
         return cube;
     }
 
-    public GameObject Light()
+    public GameObject loadLight()
     {
         GameObject light = Resources.Load("Prefaps/Light") as GameObject;
         return light;
     }
 
-    public GameObject Cylinder()
+    public GameObject loadcylinder()
     {
         GameObject cylinder = Resources.Load("Prefaps/Cylinder") as GameObject;
         return cylinder;
     }
 
-    public GameObject Cubebox()
+    public GameObject loadcubebox()
     {
         GameObject cubebox = Resources.Load("Prefaps/Cubebox") as GameObject;
         return cubebox;
     }
 
-    public GameObject LoadPlayer()
+    public GameObject loadPlayer()
     {
         GameObject player = Resources.Load("Prefaps/Other/Player") as GameObject;
         return player;

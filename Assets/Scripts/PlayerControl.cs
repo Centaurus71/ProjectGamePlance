@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private float speed = 20f; // переменная скорости
-
-    private void Update()
-    {
-        
-    }
+    private float speed = 20f; 
     private void FixedUpdate()
     {
-        //направление движения
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(transform.right * speed * Time.deltaTime);
         }
-
         else if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-transform.right * speed * Time.deltaTime);
