@@ -7,7 +7,7 @@ public class startgame : LoadObject
     // Start is called before the first frame update
     void Start()
     {
-        LoadWall load = new LoadWall();
-        load.StartLoadWall(15,21,"t");    // доступные уровни lung, medium, hard, t
+        Field load = new Field();
+        load.StartLoadField(15,21,Level.test);    // доступные уровни easy, medium, hard, t
     }
 }

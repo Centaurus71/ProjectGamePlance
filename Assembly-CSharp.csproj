@@ -60,13 +60,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\LoadBox.cs" />
-    <Compile Include="Assets\Scripts\LoadObject.cs" />
-    <Compile Include="Assets\Scripts\LoadWall.cs" />
+    <Compile Include="Assets\Scripts\Box.cs" />
+    <Compile Include="Assets\Scripts\Field.cs" />
     <Compile Include="Assets\Scripts\MouseController.cs" />
+    <Compile Include="Assets\Scripts\Objects.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\SearchWaysPlayer.cs" />
     <Compile Include="Assets\Scripts\startgame.cs" />
+    <Compile Include="Assets\Scripts\WaysPlayer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/GitHub/ProjectGamePlance/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
