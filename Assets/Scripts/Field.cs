@@ -23,11 +23,15 @@ public class Field : MonoBehaviour
         int length = lengthY;
         int indexX = 0;
         int indexZ = 0;
+
         LoadWall(wall, emptySpace, width, length, ref indexX, ref indexZ);
         int numberEmpty = emptySpace.Count;
+
         LoadField(plane, width, length, indexX, indexZ);
+
         int randomNumber = Random.Range(0, numberEmpty - 1);
         Instantiate(player, emptySpace[randomNumber], Quaternion.identity);
+
         Box Box = new Box();
         Box.LoadBox(emptySpace, randomNumber, level);
     }

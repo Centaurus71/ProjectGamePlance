@@ -65,7 +65,7 @@
     <Compile Include="Assets\Scripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\Objects.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\startgame.cs" />
+    <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\WaysPlayer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/GitHub/ProjectGamePlance/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

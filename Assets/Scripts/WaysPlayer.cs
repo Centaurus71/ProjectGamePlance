@@ -10,16 +10,17 @@ public enum Operation
 
 public class WaysPlayer : MonoBehaviour
 {
-    public void SearchWayzPlayer (ref List<Vector3> emptySpace, Vector3 vectorPlay, Vector3 vectorDirection, Operation op)
+    public void SearchWayzPlayer (ref List<Vector3> emptySpace, Vector3 vectorPlay, Vector3 vectorDirection, Vector3 vectorCorrect, Operation op)
     {
         if (op == Operation.Add)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
-                vectorPlay = vectorPlay + vectorDirection;
+                vectorPlay += vectorDirection;
                 if (emptySpace.IndexOf(vectorPlay) == -1)
                 {
-                    break;
+                    vectorPlay += vectorCorrect;
+                    emptySpace.Remove(vectorPlay);
                 }
                 else
                 {
@@ -29,12 +30,13 @@ public class WaysPlayer : MonoBehaviour
         }
         else if (op == Operation.Compute)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
-                vectorPlay = vectorPlay - vectorDirection;
+                vectorPlay -= vectorDirection;
                 if (emptySpace.IndexOf(vectorPlay) == -1)
                 {
-                    break;
+                    vectorPlay -= vectorCorrect;
+                    emptySpace.Remove(vectorPlay);
                 }
                 else
                 {

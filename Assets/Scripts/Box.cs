@@ -17,20 +17,19 @@ public class Box : MonoBehaviour
 
         LoadObject loadboxx = new LoadObject();
         GameObject cubebox = loadboxx.LoadBox();
-        WaysPlayer searchWaysPlayer = new WaysPlayer();
+        WaysPlayer waysPlayer = new WaysPlayer();
         Vector3 vectorPlayZ = new Vector3(0, 0, 11);
         Vector3 vectorPlayX = new Vector3(11, 0, 0);
         Vector3 vectorPlayLocal = emptySpace[randomNumber];
 
         int numberEmptyCall;
         emptySpace.RemoveAt(randomNumber);
-        searchWaysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayZ, Operation.Add);
-        searchWaysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayZ, Operation.Compute);
-        searchWaysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayX, Operation.Add);
-        searchWaysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayX, Operation.Compute);
+        waysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayZ, vectorPlayX, Operation.Add);
+        waysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayZ, vectorPlayX, Operation.Compute);
+        waysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayX, vectorPlayZ, Operation.Add);
+        waysPlayer.SearchWayzPlayer(ref emptySpace, vectorPlayLocal, vectorPlayX, vectorPlayZ, Operation.Compute);
 
         numberEmptyCall = emptySpace.Count;
-        
         int numberBox = numberEmptyCall * level.GetHashCode() / 100;
         for (int i = 0; i < numberBox; i++)
         {
