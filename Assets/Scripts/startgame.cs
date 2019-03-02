@@ -8,6 +8,6 @@ public class startgame : LoadObject
     void Start()
     {
         LoadWall load = new LoadWall();
-        load.StartLoadWall(15,21,"lung");    // доступные уровни lung, medium, hard, t
+        load.StartLoadWall(15,21,"t");    // доступные уровни lung, medium, hard, t
     }
 }
