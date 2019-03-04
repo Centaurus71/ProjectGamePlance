@@ -7,11 +7,12 @@ public class PlayerControl : MonoBehaviour
     private float speed = 20f; 
     private void FixedUpdate()
     {
+
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(transform.right * speed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-transform.right * speed * Time.deltaTime);
         }
