@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Field : MonoBehaviour
 {
     const int cubeScaleX = 10;
     const int cubeScaleZ = 10;
     const int cubeScaleY = 5;
     const float ratioField = 0.1f;
+    List<Vector3> emptySpace = new List<Vector3>();
 
     public void StartLoadField (int widthX, int lengthY, Level level)
     {
@@ -17,7 +19,7 @@ public class Field : MonoBehaviour
         GameObject cylinder = loadObject.LoadCylinder();
         GameObject cubebox = loadObject.LoadBox();
         GameObject player = loadObject.LoadPlayer();
-        List<Vector3> emptySpace = new List<Vector3>();
+        //List<Vector3> emptySpace = new List<Vector3>();
 
         int width = widthX;
         int length = lengthY;
@@ -31,6 +33,11 @@ public class Field : MonoBehaviour
 
         int randomNumber = Random.Range(0, numberEmpty - 1);
         Instantiate(player, emptySpace[randomNumber], Quaternion.identity);
+
+        Enemy enemy = new Enemy();
+        enemy.LoadEnemy(emptySpace);
+
+        
 
         Box Box = new Box();
         Box.LoadBox(emptySpace, randomNumber, level);

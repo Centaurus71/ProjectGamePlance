@@ -44,4 +44,10 @@ public class LoadObject : MonoBehaviour
         GameObject bomb = Resources.Load("Prefaps/Sphere") as GameObject;
         return bomb;
     }
+
+    public GameObject LoadEnemy()
+    {
+        GameObject enemy = Resources.Load("Prefaps/Other/Enemy") as GameObject;
+        return enemy;
+    }
 }
