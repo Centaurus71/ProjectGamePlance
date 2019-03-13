@@ -4,33 +4,77 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private float moveSpeed = 20f;
-    private Vector3 moveVector;
-    private CharacterController characterController;
-    
+    Vector3 localVestorPlayer;
+    Vector3 localVetorX = new Vector3(11, 0, 0);
+    Vector3 localVetorZ = new Vector3(0, 0, 11);
+    Vector3 moveVectorZ = new Vector3(0, 0, 1);
+    Vector3 moveVectorX = new Vector3(1, 0, 0);
+    bool statusCorution = false;
+
+    IEnumerator MovePlaeyr(Vector3 vector, Operation operation)
+    {
+        statusCorution = true;
+        if (operation == Operation.Add)
+        {
+            for (int i = 0; i < 11; i++)
+            {
+                yield return new WaitForSeconds(0.06f);
+                transform.position += vector;
+            }
+        }
+        else if (operation == Operation.Compute)
+        {
+            for (int i = 0; i < 11; i++)
+            {
+                yield return new WaitForSeconds(0.06f);
+                transform.position -= vector;
+            }
+        }
+        statusCorution = false;
+    }
+
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();   
+        localVestorPlayer = transform.localPosition;
+
     }
 
-    private void CharacterMove()
+    void Update()
     {
-        moveVector = Vector3.zero;
-        moveVector.x = Input.GetAxis("Horizontal") * moveSpeed;
-        moveVector.z = Input.GetAxis("Vertical") * moveSpeed;
-
-        if (Vector3.Angle(Vector3.forward, moveVector)>1f || Vector3.Angle(Vector3.forward, moveVector) == 0)
+        if (Input.GetKey(KeyCode.W))
         {
-            Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, moveSpeed, 0.0f);
-            transform.rotation = Quaternion.LookRotation(direct);
+            if (Field.emptySpace.IndexOf(localVestorPlayer + localVetorZ) != -1 & statusCorution == false)
+            {
+                StartCoroutine(MovePlaeyr(moveVectorZ, Operation.Add));
+                localVestorPlayer += localVetorZ;
+            }
         }
 
-        characterController.Move(moveVector * Time.deltaTime);
-    }
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (Field.emptySpace.IndexOf(localVestorPlayer - localVetorZ) != -1 & statusCorution == false)
+            {
+                StartCoroutine(MovePlaeyr(moveVectorZ, Operation.Compute));
+                localVestorPlayer -= localVetorZ;
+            }
+        }
 
-    private void FixedUpdate()
-    {
-        Vector3 vector3 = transform.localPosition;
-        CharacterMove();
+        if (Input.GetKey(KeyCode.D))
+        {
+            if (Field.emptySpace.IndexOf(localVestorPlayer + localVetorX) != -1 & statusCorution == false)
+            {
+                StartCoroutine(MovePlaeyr(moveVectorX, Operation.Add));
+                localVestorPlayer += localVetorX;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            if (Field.emptySpace.IndexOf(localVestorPlayer - localVetorX) != -1 & statusCorution == false)
+            {
+                StartCoroutine(MovePlaeyr(moveVectorX, Operation.Compute));
+                localVestorPlayer -= localVetorX;
+            }
+        }
     }
 }

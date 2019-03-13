@@ -9,7 +9,7 @@ public class Field : MonoBehaviour
     const int cubeScaleZ = 10;
     const int cubeScaleY = 5;
     const float ratioField = 0.1f;
-    List<Vector3> emptySpace = new List<Vector3>();
+    public static List<Vector3> emptySpace = new List<Vector3>();
 
     public void StartLoadField (int widthX, int lengthY, Level level)
     {

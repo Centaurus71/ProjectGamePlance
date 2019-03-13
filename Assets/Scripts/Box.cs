@@ -38,5 +38,10 @@ public class Box : MonoBehaviour
             Instantiate(cubebox, emptySpace[ranNumber], Quaternion.identity);
             emptySpace.RemoveAt(ranNumber);
         }
+
+        foreach (Vector3 vector in WaysPlayer.Костылек)
+        {
+            Field.emptySpace.Add(vector);
+        }
     }
 }
