@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 3122573265779802877}
   - component: {fileID: 6077933485979321358}
   - component: {fileID: 5182340673908987690}
-  - component: {fileID: 198839410011295318}
   - component: {fileID: 4342317847583591}
   m_Layer: 0
   m_Name: Player
@@ -204,19 +203,6 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &198839410011295318
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6942928059170236663}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4342317847583591
 MonoBehaviour:

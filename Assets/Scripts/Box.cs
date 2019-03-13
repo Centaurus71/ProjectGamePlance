@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum Level
 {
+    fieldNull = 0,
     easy = 40,
     normal = 60,
     hard = 80,
