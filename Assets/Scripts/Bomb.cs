@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     LoadObject loadObject = new LoadObject();
-    List<GameObject> listBomb = new List<GameObject>();
+    public static List<GameObject> listBomb = new List<GameObject>();
     const int numberBomb = 5;
    
     

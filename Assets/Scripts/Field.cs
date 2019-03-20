@@ -34,9 +34,10 @@ public class Field : MonoBehaviour
         int randomNumber = Random.Range(0, numberEmpty - 1);
         Instantiate(player, emptySpace[randomNumber], Quaternion.identity);
 
-        Enemy enemy = new Enemy();
+        /* EnemyControl enemy = new EnemyControl();
+         enemy.LoadEnemy(emptySpace);*/
+        TestMoveEnemy enemy = new TestMoveEnemy();
         enemy.LoadEnemy(emptySpace);
-
         
 
         Box Box = new Box();

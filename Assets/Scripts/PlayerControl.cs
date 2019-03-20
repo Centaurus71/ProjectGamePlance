@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    public static Vector3 upPlayVector;
     Vector3 localVestorPlayer;
     Vector3 localVetorX = new Vector3(11, 0, 0);
     Vector3 localVetorZ = new Vector3(0, 0, 11);
@@ -12,6 +13,10 @@ public class PlayerControl : MonoBehaviour
     bool statusCorution = false;
     const int cellSize = 11;
     Bomb bomb = new Bomb();
+
+
+    int[,] test = new int[2, 2];
+
 
     IEnumerator MovePlaeyr(Vector3 vector, Operation operation)
     {
@@ -38,10 +43,18 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     {
         localVestorPlayer = transform.localPosition;
+        for (int i = 0; i < 2; i++)
+        {
+            for(int x = 0; x < 2; x++)
+            {
+                test[i, x] = i;
+            }
+        }
     }
 
     void Update()
     {
+        upPlayVector = transform.localPosition;
         if (Input.GetKey(KeyCode.W))
         {
             if (Field.emptySpace.IndexOf(localVestorPlayer + localVetorZ) != -1 & statusCorution == false)
@@ -85,6 +98,21 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             bomb.LoadBomb(transform.localPosition);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            string str = null;
+            for (int i = 0; i < 2; i++)
+            {
+                str = null;
+                for (int x = 0; x < 2; x++)
+                {
+                    str += test[i, x] + " ";
+                }
+                print(str);
+            }
+
         }
     }
 }

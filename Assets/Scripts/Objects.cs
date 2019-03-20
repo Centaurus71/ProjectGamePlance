@@ -50,4 +50,10 @@ public class LoadObject : MonoBehaviour
         GameObject enemy = Resources.Load("Prefaps/Other/Enemy") as GameObject;
         return enemy;
     }
+
+    public GameObject LoadPoint()
+    {
+        GameObject point = Resources.Load("Prefaps/Point") as GameObject;
+        return point;
+    }
 }
