@@ -8,6 +8,6 @@ public class StartGame : MonoBehaviour
     void Start()
     {
         Field load = new Field();
-        load.StartLoadField(15,21,Level.fieldNull);    // доступные уровни easy, medium, hard, test
+        load.StartLoadField(15,21,Level.normal);    // доступные уровни easy, medium, hard, test
     }
 }

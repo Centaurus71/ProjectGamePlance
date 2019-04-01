@@ -56,4 +56,22 @@ public class LoadObject : MonoBehaviour
         GameObject point = Resources.Load("Prefaps/Point") as GameObject;
         return point;
     }
+
+    public GameObject LoadGainsSpeed()
+    {
+        GameObject gainsSpeed = Resources.Load("Prefaps/GainsSpeed") as GameObject;
+        return gainsSpeed;
+    }
+
+    public GameObject LoadGainsWall ()
+    {
+        GameObject gainsWall = Resources.Load("Prefaps/GainsWall") as GameObject;
+        return gainsWall;
+    }
+
+    public GameObject LoadMarkerBomb()
+    {
+        GameObject markerBomb = Resources.Load("Prefaps/MarkerBomb") as GameObject;
+        return markerBomb;
+    }
 }

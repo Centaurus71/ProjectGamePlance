@@ -7,9 +7,11 @@ public class Field : MonoBehaviour
 {
     const int cubeScaleX = 10;
     const int cubeScaleZ = 10;
-    const int cubeScaleY = 5;
+    const int cubeScaleY = 0;
     const float ratioField = 0.1f;
     public static List<Vector3> emptySpace = new List<Vector3>();
+    public static List<Vector3> testEmptySpace = new List<Vector3>();
+
 
     public void StartLoadField (int widthX, int lengthY, Level level)
     {
@@ -42,6 +44,9 @@ public class Field : MonoBehaviour
 
         Box Box = new Box();
         Box.LoadBox(emptySpace, randomNumber, level);
+
+        Gains gains = new Gains();
+        gains.LoadGains(emptySpace);
     }
 
     private static void LoadField(GameObject plane, int width, int length, int indexX, int indexZ)
@@ -64,10 +69,12 @@ public class Field : MonoBehaviour
                 if (x == 0 | z == 0 | x == width - 1 | z == length - 1 | (x % 2 == 0 & z % 2 == 0))
                 {
                     Instantiate(wall, new Vector3(x * cubeScaleX + indexX, cubeScaleY, z * cubeScaleZ + indexZ), Quaternion.identity);
+                   // testEmptySpace.Add(new Vector3(x * cubeScaleX + indexX, cubeScaleY, z * cubeScaleZ + indexZ));
                 }
                 else if ((x % 2 != 0 & z % 2 != 0) | (x % 2 != 0 & z % 2 == 0) | (x % 2 == 0 & z % 2 != 0))
                 {
                     emptySpace.Add(new Vector3(x * cubeScaleX + indexX, cubeScaleY, z * cubeScaleZ + indexZ));
+                    testEmptySpace.Add(new Vector3(x * cubeScaleX + indexX, cubeScaleY, z * cubeScaleZ + indexZ));
                 }
                 indexZ++;
             }

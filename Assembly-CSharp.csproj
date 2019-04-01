@@ -64,9 +64,16 @@
     <Compile Include="Assets\Other Scripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\Bomb.cs" />
     <Compile Include="Assets\Scripts\Box.cs" />
+    <Compile Include="Assets\Scripts\CollisionsBox.cs" />
     <Compile Include="Assets\Scripts\DeleteBomb.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\Field.cs" />
+    <Compile Include="Assets\Scripts\Gains.cs" />
+    <Compile Include="Assets\Scripts\GainsSpeed.cs" />
+    <Compile Include="Assets\Scripts\GainsWall.cs" />
+    <Compile Include="Assets\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\MarkerBox.cs" />
+    <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\Objects.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
